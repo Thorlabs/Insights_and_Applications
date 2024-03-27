@@ -7,8 +7,8 @@ This solar telescope is design using all Thorlabs catalog components, with the e
 BOM:
 <ul>
 
-**Camera**	
-- CS165CU x 1
+**Monochrome Camera**	
+- CS165MU x 1 (CS165CU for Color Camera)
 
 **Lens Tubes**
 - SM1L20 x 1
@@ -57,7 +57,7 @@ BOM:
 **Lens Tube Clamps**
 - SM1RC x 2
 
-
+![Motor Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/MotorAssembly.PNG)
 
 </ul> 
 An excel sheet is available as well: Motorized 'Tracking Assembly.xls'
