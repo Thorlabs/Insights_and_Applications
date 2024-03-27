@@ -7,18 +7,20 @@ This repository is the code used for the Thorlabs Insight that covers the design
 ## What are each of these files?
 <ul>
 
-- **pyKinesis.py** - A class that wraps the Kinesis serial communication into a more user friendly interface
+- **pyKinesis.py** - A class that wraps the basic commands of the Kinesis serial communication into a more user friendly interface
 
-- **solarTrackingGUI.py** - A program that runs a small GUI for altering the telescope offsets and to disable the solar tracking. It generates 
-	a config file for communicating with the tracking script. 
+- **solarTrackingGUI.py** - A program that runs a small GUI for altering the telescope offsets and to disable the solar tracking. This generates 
+	a .json config file for communicating tracking parameters with the tracking script. 
+
+![solarTrackingGUI](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/SolarTrackingGUI.PNG)	
 	
-- **trackingParams.json** - A json file containing parameters read in by the tracking software
+- **trackingParams.json** - A .json file containing parameters read in by the tracking software
 	
-- **solarTracking.py** - The actual program that connects the rotation stages and tracks the sun. This requires user specific settings that we'll have to set for TLS
+- **solarTracking.py** - The actual program that communicates with the rotation stages and tracks the sun. This requires user specific settings that must be accurate to work correctly. 
 	
 	1) User's longitude
-	2) User Latitude
-	3) Users Time Zone
+	2) User's Latitude
+	3) User's Time Zone (per pyts.all_timeszones)
 	4) The serial numbers of the controllers for the Azimuth and Elevation axes
 
 </ul>
@@ -57,13 +59,19 @@ This repository is the code used for the Thorlabs Insight that covers the design
 
 5. Save the updated user settings in solarTracking.py 
 6. Open a terminal and run solarTrackingGUI.py.(This program is a GUI for updating the tracking offsets and to stop the tracking program.)
-
+		
+		python solarTrackingGUI.py
 
 7. In another terminal, run solarTracking.py which will initiate the tracking
+		
+		python solarTracking.py
+
 	- The program will look for COM ports with device serial numbers that match those entered
 	- Home each stage
 	- Move each axis to the current solar position based on your location/timezone
 	- Prompt the user to start tracking by hitting enter. 
+
+	![solarTrackingOutput](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/solarTrackingOutput.png)	
 
 8. To stop the program, click 'Stop Tracking' in the GUI and the program will terminate tracking and end
 </ul>
@@ -87,17 +95,30 @@ Most Linus kernels incorporate the FTDI drivers necessary for identifying the K-
 	- azimuthKDC101SN - Serial Number(string)  of the azimuth axis K-Cube Controller
 	- elevationKDC101SN - Serial Number(string)  of the elevation/altitude axis K-Cube Controller
 
+	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)	
+
+
 3. Save the updated user settings in solarTracking.py 
 4. Open a terminal and run solarTrackingGUI.py.(This program is a GUI for updating the tracking offsets and to stop the tracking program.)
+
+		python solarTrackingGUI.py
+
 5. In another terminal, run solarTracking.py which will initiate the tracking
+
+
+		python solarTracking.py
+
 	* The program will look for COM ports with device serial numbers that match those entered
 	* Home each stage
 	* Move each axis to the current solar position based on your location/timezone
 	* Prompt the user to start tracking by hitting enter. 
-![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)	
+
+
+	![solarTrackingOutput](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/solarTrackingOutput.png)	
+
 
 6. To stop the program, click 'Stop Tracking' in the GUI and the program will terminate tracking and end
-
+![solarTrackingGUI](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/SolarTrackingGUI.PNG)
 </ul>
 
 
