@@ -23,10 +23,10 @@ BOM:
 - NE20A x 1
 - NE10A x 1
 
-An excel sheet is available as well: 'Telescope Assembly.xls'
+
 ![Solar Telescope Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/TelescopeAssembly.PNG)
 </ul> 
-
+An excel sheet is available as well: 'Telescope Assembly.xls'
 
 ## Motorized Tracking Assmebly
 
