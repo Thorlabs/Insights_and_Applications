@@ -4,7 +4,7 @@
 
 This repository is the code used for the Thorlabs Insight that covers the design and build of an imaging, tracking solar telescope using the PRMTZ8 rotation stages. This Insight provides a overall explanation the the telescope design and using the software. 
 
-For more details on the parts and BOM, there is a detailed README in the [Design Files folder](https://github.com/Thorlabs/Insights_and_Applications/tree/main/Tracking%20Solar%20Telescope/Design%20Files). 
+For more details on the parts, BOM, and 3D printable motor Bracket, there is a detailed README in the [Design Files folder](https://github.com/Thorlabs/Insights_and_Applications/tree/main/Tracking%20Solar%20Telescope/Design%20Files). 
 
 Currently the python scripts only control the motors and do not interface with the CS165MU camera. The camera feed can be observed using Thorcam or developing a program to stream the camera feed. For CS165MU and simlar Zelux programs, refer to the [Camera Examples repo](https://github.com/Thorlabs/Camera_Examples). 
 
