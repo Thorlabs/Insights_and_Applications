@@ -37,7 +37,7 @@ This project can...
 	- azimuthKDC101SN - Serial Number(string)  of the azimuth axis K-Cube Controller
 	- elevationKDC101SN - Serial Number(string)  of the elevation/altitude axis K-Cube Controller
 
-	[User Settings](assetts/USerSettings.png)
+![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)
 
 5. Save the updated user settings in solarTracking.py 
 6. Open a terminal and run solarTrackingGUI.py.(This program is a GUI for updating the tracking offsets and to stop the tracking program.)
