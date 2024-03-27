@@ -6,10 +6,12 @@ This repository is the code used for the Thorlabs Insight that covers the design
 
 For more details on the parts and BOM, there is a detailed README in the [Design Files folder](https://github.com/Thorlabs/Insights_and_Applications/tree/main/Tracking%20Solar%20Telescope/Design%20Files). 
 
+Currently the python scripts only control the motors and do not interface with the CS165MU camera. The camera feed can be observed using Thorcam or developing a program to stream the camera feed. For CS165MU and simlar Zelux programs, refer to the [Camera Examples repo](https://github.com/Thorlabs/Camera_Examples). 
+
 ## What are each of these files?
 <ul>
 
-- **pyKinesis.py** - A class that wraps the basic commands of the Kinesis serial communication into a more user friendly interface
+- **pyKinesis.py** - A class that wraps the basic commands of the Kinesis serial communication protocol into a more user friendly interface
 
 - **solarTrackingGUI.py** - A program that runs a small GUI for altering the telescope offsets and to disable the solar tracking. This generates 
 	a .json config file for communicating tracking parameters with the tracking script. 
@@ -20,10 +22,10 @@ For more details on the parts and BOM, there is a detailed README in the [Design
 	
 - **solarTracking.py** - The actual program that communicates with the rotation stages and tracks the sun. This requires user specific settings that must be accurate to work correctly. 
 	
-	* Whether the user want sot track the sun or moon
-	* User's longitude
+	* Whether the user wants to track the sun or moon
+	* User's Longitude
 	* User's Latitude
-	* User's Time Zone (per pyts.all_timeszones)
+	* User's Time Zone (per pytz.all_timeszones)
 	* The serial numbers of the controllers for the Azimuth and Elevation axes
 
 	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)
@@ -38,11 +40,11 @@ For more details on the parts and BOM, there is a detailed README in the [Design
 ### **Windows**
 <ul>
 
-1. Install the [VCP FTDI drivers](https://ftdichip.com/drivers/vcp-drivers/)
+1. Install the [VCP FTDI drivers](https://ftdichip.com/drivers/vcp-drivers/) so the K-Cubes can be identified as COM ports
 	- If Kinesis is installed, this is not necessary
 
 2. With each K-cube connected to the computer, open device manager and make sure there is a COM port for each cube.
-	- If not showing as as COM port devices, open device manager and select properties for each APT USB Device and check the 'Load VCP' is box and power cycle the controllers. 
+	- If not showing as COM port devices, open device manager and select properties for each APT USB Device and check the 'Load VCP' is box and power cycle the controllers. 
 ![Virtual Com Ports](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/Load%20VCP.PNG)
 
 3. Install the necessary Python dependencies if not already
