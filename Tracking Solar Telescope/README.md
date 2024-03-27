@@ -19,7 +19,7 @@ This project can...
 
 2. With each K-cube connected to the computer, open device manager and make sure there is a COM port for each cube.
 	- If not showing as as COM port devices, open device manager and select properties for each APT USB Device and check the 'Load VCP' is box and power cycle the controllers. 
-![Virtual Com Ports](assetts/Load VCP.PNG)
+![Virtual Com Ports](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/Load%20VCP.PNG)
 
 3. Install the necessary Python dependencies if not already
 	- PySerial (pip install pyserial)
