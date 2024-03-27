@@ -27,7 +27,7 @@ This repository is the code used for the Thorlabs Insight that covers the design
 		- azimuthKDC101SN - Serial Number(string)  of the azimuth axis K-Cube Controller
 		- elevationKDC101SN - Serial Number(string)  of the elevation/altitude axis K-Cube Controller
 
-		[User Settings](assetts/USerSettings.md)
+		[User Settings](assetts/USerSettings.png)
 
 	5. Save the updated user settings in solarTracking.py 
 	6. Open a terminal and run solarTrackingGUI.py.(This program is a GUI for updating the tracking offsets and to stop the tracking program.)
