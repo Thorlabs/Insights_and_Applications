@@ -23,8 +23,8 @@ BOM:
 - NE20A x 1
 - NE10A x 1
 
-An excel sheet is availble as well: Telescope Assembly.xls
-
+An excel sheet is available as well: 'Telescope Assembly.xls'
+![Solar Telescope Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/TelescopeAssembly.PNG)
 </ul> 
 
 
@@ -49,7 +49,7 @@ BOM:
 - PRMTZ8 Gimbal Motor.3mf x 1
 
 **Post Holders**
-PH1 x 1
+- PH1 x 1
 
 **Posts**
 - TR1 x 2
@@ -60,4 +60,4 @@ PH1 x 1
 
 
 </ul> 
-An excel sheet is availble as well: Motorized Tracking Assembly.xls
+An excel sheet is available as well: Motorized 'Tracking Assembly.xls'
