@@ -23,6 +23,9 @@ This repository is the code used for the Thorlabs Insight that covers the design
 	* User's Latitude
 	* User's Time Zone (per pyts.all_timeszones)
 	* The serial numbers of the controllers for the Azimuth and Elevation axes
+	
+	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)
+
 
 </ul>
 
