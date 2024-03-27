@@ -77,6 +77,8 @@ This repository is the code used for the Thorlabs Insight that covers the design
 	![solarTrackingOutput](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/solarTrackingOutput.png)	
 
 8. To stop the program, click 'Stop Tracking' in the GUI and the program will terminate tracking and end
+	![solarTrackingGUI](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/SolarTrackingGUI.PNG)
+
 </ul>
 
 ### **Linux**
@@ -123,7 +125,7 @@ Most Linus kernels incorporate the FTDI drivers necessary for identifying the K-
 
 
 6. To stop the program, click 'Stop Tracking' in the GUI and the program will terminate tracking and end
-![solarTrackingGUI](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/SolarTrackingGUI.PNG)
+	![solarTrackingGUI](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/SolarTrackingGUI.PNG)
 </ul>
 
 
