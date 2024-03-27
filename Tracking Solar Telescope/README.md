@@ -15,11 +15,11 @@ This project can...
 <ul>
 
 1. Install the [VCP FTDI drivers](https://ftdichip.com/drivers/vcp-drivers/)
-	- If Kinsis is already installed, this is not necessary
+	- If Kinesis is installed, this is not necessary
 
 2. With each K-cube connected to the computer, open device manager and make sure there is a COM port for each cube.
 	- If not showing as as COM port devices, open device manager and select properties for each APT USB Device and check the 'Load VCP' is box and power cycle the controllers. 
-	[Virtual Com Ports](assetts/Load VCP.PNG)
+![Virtual Com Ports](assetts/Load VCP.PNG)
 
 3. Install the necessary Python dependencies if not already
 	- PySerial (pip install pyserial)
