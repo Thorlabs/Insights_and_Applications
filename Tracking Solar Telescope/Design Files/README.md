@@ -30,7 +30,7 @@ BOM:
 </ul> 
 An excel sheet is available as well: 'Telescope Assembly.xls'
 
-## Motorized Tracking Assmebly
+## Motorized Tracking Assembly
 
 
 BOM:
