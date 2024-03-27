@@ -1,12 +1,12 @@
 # Insights_and_Applications
 
-##A command line Python project for automating the tracking of a solar/lunar telescope using the Thorlabs PRMTZ8 motors
+## A command line Python project for automating the tracking of a solar/lunar telescope using the Thorlabs PRMTZ8 motors
 
 This repository is the code used for the Thorlabs Insight that covers the design and build of a imaging, tracking solar telescope. This Insight provides a overall explanation the the telescope design and using the software. 
 
 ## How to use this project
 
-###**Windows**
+### **Windows**
 1. Install the FTDI drivers (installing Kinesis will do this automatically)
 2. With each K-cube connected to the computer, open device manager and make sure there are port for each cube. Check 
 
@@ -40,7 +40,7 @@ This repository is the code used for the Thorlabs Insight that covers the design
 
 7. To stop the program, click 'Stop Tracking' in the GUI and the program will terminate tracking and end
 
-###**Linux**
+### **Linux**
 Most Linus Kernels incorporate the FTDI drivers for identifying the K-Cube motor controllers, so only python dependencies are needed
 1. Install the necessary Python dependencies
 * PySerial (pip install pyserial)
@@ -67,7 +67,7 @@ Most Linus Kernels incorporate the FTDI drivers for identifying the K-Cube motor
 
 6. To stop the program, click 'Stop Tracking' in the GUI and the program will terminate tracking and end
 
-##FAQ
+## FAQ
 
 * Do I Need to have Kinesis installed?
 No. This project uses the serial communcation protocol, which 
