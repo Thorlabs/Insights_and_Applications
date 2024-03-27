@@ -1,6 +1,8 @@
 # Solar Telescope Design 
 
-This solar telescope is design using all Thorlabs catalog components, with the exception of a 3D printed bracket for mounting the two rotation stages in a celestial coordinate system. 
+This solar telescope is designws using all Thorlabs catalog components, with the exception of a 3D printed bracket for mounting the two rotation stages in a celestial coordinate system. 
+
+The bill of materials (BOM) for the imaging telescope as well as the motorized mounting assembly is detailed below. 
 
 ## Telescope Assembly
 
