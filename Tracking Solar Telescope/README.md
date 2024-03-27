@@ -6,14 +6,14 @@ This repository is the code used for the Thorlabs Insight that covers the design
 
 ## What are each of these files?
 <ul>
-+ **pyKinesis.py** - A class that wraps the Kinesis serial communication into a more user friendly interface
-+ **solarTrackingGUI.py** - A program that runs a small GUI for altering the telescope offsets and to disable the solar tracking. It generates a config file for communicating with the tracking script. 
-+ **trackingParams.json** - A json file containing parameters read in by the tracking software
-+ **solarTracking.py** - The actual program that connects the rotation stages and tracks the sun. This requires user specific settings that we'll have to set for TLS
-	1) User's longitude
-	2) User Latitude
-	3) Users Time Zone
-	4) The serial numbers of the controllers for the Azimuth and Elevation axes
+	* **pyKinesis.py** - A class that wraps the Kinesis serial communication into a more user friendly interface
+	* **solarTrackingGUI.py** - A program that runs a small GUI for altering the telescope offsets and to disable the solar tracking. It generates a config file for communicating with the tracking script. 
+	* **trackingParams.json** - A json file containing parameters read in by the tracking software
+	* **solarTracking.py** - The actual program that connects the rotation stages and tracks the sun. This requires user specific settings that we'll have to set for TLS
+		1) User's longitude
+		2) User Latitude
+		3) Users Time Zone
+		4) The serial numbers of the controllers for the Azimuth and Elevation axes
 
 </ul>
 
