@@ -1,15 +1,23 @@
 # Insights_and_Applications
 
-## A command line Python project for automating the tracking of a solar/lunar telescope using the Thorlabs PRMTZ8 motors
+## Build A Motorized Imaging Solar Telescope | Thorlabs Insights
 
-This repository is the code used for the Thorlabs Insight that covers the design and build of a imaging, tracking solar telescope. This Insight provides a overall explanation the the telescope design and using the software. 
+This repository is the code used for the Thorlabs Insight that covers the design and build of a imaging, tracking solar telescope using the PRMTZ8 rotation stages. This Insight provides a overall explanation the the telescope design and using the software. 
+
+## What Does This Project Do? 
+This project can...
+	- Be directly used to replicate the solar tracking solar telescope built in the Insight
+	- 
 
 ## How to use this project
 
 ### **Windows**
-	1. Install the FTDI drivers (installing Kinesis will do this automatically)
+	1. Install the [VCP FTDI drivers](https://ftdichip.com/drivers/vcp-drivers/)
+		- If Kinsis is already installed, this is not necessary
 
-	2. With each K-cube connected to the computer, open device manager and make sure there is a COM port for each cube.  
+	2. With each K-cube connected to the computer, open device manager and make sure there is a COM port for each cube.
+		- If not showing as as COM port devices, open device manager and select properties for each APT USB Device and check the 'Load VCP' is box and power cycle the controllers. 
+		[Virtual Com Ports](assetts/Load VCP.PNG)
 
 	3. Install the necessary Python dependencies if not already
 		- PySerial (pip install pyserial)
@@ -42,7 +50,7 @@ This repository is the code used for the Thorlabs Insight that covers the design
 	8. To stop the program, click 'Stop Tracking' in the GUI and the program will terminate tracking and end
 
 ### **Linux**
-Most Linus Kernels incorporate the FTDI drivers for identifying the K-Cube motor controllers, so only python dependencies are needed
+Most Linus kernels incorporate the FTDI drivers necessary for identifying the K-Cube motor controllers, so only python dependencies are needed
 	1. Install the necessary Python dependencies
 		- PySerial (pip install pyserial)
 		- numpy (pip install numpy)

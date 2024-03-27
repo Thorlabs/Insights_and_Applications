@@ -178,9 +178,6 @@ class ThorController:
 		Will blink the relevent cube and or channel on a benchtop controller to help identify
 		 the controller asscoaited with a particular ThorController object. 
 
-
-		 check whether this works on benchtop controller or if 0x11 dest byte is necessary
-
 		'''
 		if self.Controller_Type == 'cube':
 			#MGMSG_MOD_IDENTIFY
@@ -198,7 +195,7 @@ class ThorController:
 		''' Must be sent at least once every 50 commands to keep the connection alive'''
 
 		#MGMSG_MOT_ACK_DCSTATUSUPDATE
-		#Must be sent every 50 Tx commands otherwise stage will be unresponsive
+		#Must be sent every 50 Tx commands if polling, otherwise polling will stop
 		self.Serial_Port.write(pack('<HBBBB',0x0492,0x00,0x00,self.get_destination_byte(channel_num),self.source_byte))
 
 		return
