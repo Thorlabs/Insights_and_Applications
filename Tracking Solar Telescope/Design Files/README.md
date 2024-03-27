@@ -1,6 +1,6 @@
 # Solar Telescope Design 
 
-This solar telescope is designws using all Thorlabs catalog components, with the exception of a 3D printed bracket for mounting the two rotation stages in a celestial coordinate system. 
+This solar telescope is designed using all Thorlabs catalog components, with the exception of a 3D printed bracket for mounting the PRMTZ8 two rotation stages in a celestial coordinate system. 
 
 The bill of materials (BOM) for the imaging telescope as well as the motorized mounting assembly is detailed below. 
 
@@ -62,7 +62,7 @@ BOM:
 
 ![Motor Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/MotorAssembly.PNG)
 
-(Breadboard, Breadboard Feet, and K-Cube Controllers, and K-Cube Hub not shown in image)
+(Breadboard, Breadboard Feet, K-Cube Controllers, and K-Cube Hub not shown in image)
 </ul> 
 
-**Excel Sheet:** An excel sheet is available as well: Motorized 'Tracking Assembly.xls'
+**Excel Sheet:** Motorized 'Tracking Assembly.xls'
