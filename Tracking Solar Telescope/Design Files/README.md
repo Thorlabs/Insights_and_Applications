@@ -28,6 +28,7 @@ BOM:
 
 ![Solar Telescope Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/TelescopeAssembly.PNG)
 </ul> 
+
 **Excel Sheet:** 'Telescope Assembly.xls'
 
 ## Motorized Tracking Assembly
@@ -62,4 +63,5 @@ BOM:
 ![Motor Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/MotorAssembly.PNG)
 
 </ul> 
+
 **Excel Sheet:** An excel sheet is available as well: Motorized 'Tracking Assembly.xls'
