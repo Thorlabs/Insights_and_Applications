@@ -18,10 +18,11 @@ This repository is the code used for the Thorlabs Insight that covers the design
 	
 - **solarTracking.py** - The actual program that communicates with the rotation stages and tracks the sun. This requires user specific settings that must be accurate to work correctly. 
 	
-	1) User's longitude
-	2) User's Latitude
-	3) User's Time Zone (per pyts.all_timeszones)
-	4) The serial numbers of the controllers for the Azimuth and Elevation axes
+	1) Whether the user want sot track the sun or moon
+	2) User's longitude
+	3) User's Latitude
+	4) User's Time Zone (per pyts.all_timeszones)
+	5) The serial numbers of the controllers for the Azimuth and Elevation axes
 
 </ul>
 
@@ -49,11 +50,13 @@ This repository is the code used for the Thorlabs Insight that covers the design
 
 
 4. Open solarTracking.py in a text editor and update the following user specific settings:
-	- userLongitude - Your Longitude position
-	- userLatitude - Your Latitude position
-	- userTimeZone - Your Timezone (printing pytz.all_timezones will show all options)
-	- azimuthKDC101SN - Serial Number(string)  of the azimuth axis K-Cube Controller
-	- elevationKDC101SN - Serial Number(string)  of the elevation/altitude axis K-Cube Controller
+
+	- **trackingObject** - What object you want to track; "Sun" or "Moon"
+	- **userLongitude** - Your Longitude position
+	- **userLatitude** - Your Latitude position
+	- **userTimeZone** - Your Timezone (printing pytz.all_timezones will show all options)
+	- **azimuthKDC101SN** - Serial Number(string)  of the azimuth axis K-Cube Controller
+	- **elevationKDC101SN** - Serial Number(string)  of the elevation/altitude axis K-Cube Controller
 
 	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)
 
@@ -89,11 +92,13 @@ Most Linus kernels incorporate the FTDI drivers necessary for identifying the K-
 	- pytz (pip install pytz)
 
 2. Open solarTracking.py in a text editor and update the following user specific settings:
-	- userLongitude - Your Longitude position
-	- userLatitude - Your Latitude position
-	- userTimeZone - Your Timezone (printing pytz.all_timezones will show all options)
-	- azimuthKDC101SN - Serial Number(string)  of the azimuth axis K-Cube Controller
-	- elevationKDC101SN - Serial Number(string)  of the elevation/altitude axis K-Cube Controller
+
+	- **trackingObject** - What object you want to track; "Sun" or "Moon"
+	- **userLongitude** - Your Longitude position
+	- **userLatitude** - Your Latitude position
+	- **userTimeZone** - Your Timezone (printing pytz.all_timezones will show all options)
+	- **azimuthKDC101SN** - Serial Number(string)  of the azimuth axis K-Cube Controller
+	- **elevationKDC101SN** - Serial Number(string)  of the elevation/altitude axis K-Cube Controller
 
 	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)	
 
