@@ -2,7 +2,7 @@
 
 This solar telescope is designed using all Thorlabs catalog components, with the exception of a 3D printed bracket for mounting the PRMTZ8 two rotation stages in a celestial coordinate system. 
 
-The bill of materials (BOM) for the imaging telescope as well as the motorized mounting assembly is detailed below. 
+The bill of materials (BOM) for the imaging telescope as well as the motorized mounting assembly are detailed below. 
 
 ## Telescope Assembly
 
