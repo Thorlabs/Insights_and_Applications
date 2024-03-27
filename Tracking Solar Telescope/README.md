@@ -2,7 +2,7 @@
 
 ## Build A Motorized Imaging Solar Telescope | Thorlabs Insights
 
-This repository is the code used for the Thorlabs Insight that covers the design and build of a imaging, tracking solar telescope using the PRMTZ8 rotation stages. This Insight provides a overall explanation the the telescope design and using the software. 
+This repository is the code used for the Thorlabs Insight that covers the design and build of an imaging, tracking solar telescope using the PRMTZ8 rotation stages. This Insight provides a overall explanation the the telescope design and using the software. 
 
 ## What Does This Project Do? 
 This project can...
@@ -17,7 +17,7 @@ This project can...
 
 	2. With each K-cube connected to the computer, open device manager and make sure there is a COM port for each cube.
 		- If not showing as as COM port devices, open device manager and select properties for each APT USB Device and check the 'Load VCP' is box and power cycle the controllers. 
-		[Virtual Com Ports](assetts/Load VCP.PNG)
+		![Virtual Com Ports](assetts/Load VCP.PNG)
 
 	3. Install the necessary Python dependencies if not already
 		- PySerial (pip install pyserial)
@@ -35,7 +35,7 @@ This project can...
 		- azimuthKDC101SN - Serial Number(string)  of the azimuth axis K-Cube Controller
 		- elevationKDC101SN - Serial Number(string)  of the elevation/altitude axis K-Cube Controller
 
-		[User Settings](assetts/USerSettings.png)
+		![User Settings](assetts/USerSettings.png)
 
 	5. Save the updated user settings in solarTracking.py 
 	6. Open a terminal and run solarTrackingGUI.py.(This program is a GUI for updating the tracking offsets and to stop the tracking program.)
