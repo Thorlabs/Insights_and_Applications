@@ -1,6 +1,6 @@
-# Insights_and_Applications
 
-## Build A Motorized Imaging Solar Telescope | Thorlabs Insights
+
+# Build A Motorized Imaging Solar Telescope | Thorlabs Insights
 
 This repository is the code used for the Thorlabs Insight that covers the design and build of an imaging, tracking solar telescope using the PRMTZ8 rotation stages. This Insight provides a overall explanation the the telescope design and using the software. 
 
