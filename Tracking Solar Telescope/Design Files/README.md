@@ -62,6 +62,7 @@ BOM:
 
 ![Motor Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/MotorAssembly.PNG)
 
+(Breadboard, Breadboard Feet, and Controllers and K-Cube Hub not shown in image)
 </ul> 
 
 **Excel Sheet:** An excel sheet is available as well: Motorized 'Tracking Assembly.xls'
