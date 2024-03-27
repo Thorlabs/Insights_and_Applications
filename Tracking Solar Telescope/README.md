@@ -4,6 +4,8 @@
 
 This repository is the code used for the Thorlabs Insight that covers the design and build of an imaging, tracking solar telescope using the PRMTZ8 rotation stages. This Insight provides a overall explanation the the telescope design and using the software. 
 
+For more details on the parts and BOM, there is a detailed README in the Design Files folder. 
+
 ## What are each of these files?
 <ul>
 
@@ -23,7 +25,7 @@ This repository is the code used for the Thorlabs Insight that covers the design
 	* User's Latitude
 	* User's Time Zone (per pyts.all_timeszones)
 	* The serial numbers of the controllers for the Azimuth and Elevation axes
-	
+
 	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)
 
 
