@@ -12,17 +12,17 @@ This repository is the code used for the Thorlabs Insight that covers the design
 - **solarTrackingGUI.py** - A program that runs a small GUI for altering the telescope offsets and to disable the solar tracking. This generates 
 	a .json config file for communicating tracking parameters with the tracking script. 
 
-![solarTrackingGUI](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/SolarTrackingGUI.PNG)	
+	![solarTrackingGUI](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/SolarTrackingGUI.PNG)	
 	
 - **trackingParams.json** - A .json file containing parameters read in by the tracking software
 	
 - **solarTracking.py** - The actual program that communicates with the rotation stages and tracks the sun. This requires user specific settings that must be accurate to work correctly. 
 	
-	1) Whether the user want sot track the sun or moon
-	2) User's longitude
-	3) User's Latitude
-	4) User's Time Zone (per pyts.all_timeszones)
-	5) The serial numbers of the controllers for the Azimuth and Elevation axes
+	* Whether the user want sot track the sun or moon
+	* User's longitude
+	* User's Latitude
+	* User's Time Zone (per pyts.all_timeszones)
+	* The serial numbers of the controllers for the Azimuth and Elevation axes
 
 </ul>
 
