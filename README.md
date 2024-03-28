@@ -1,6 +1,6 @@
 # Insights_and_Applications
 
-Software and documentation for the code used in Thorlabs Insight videos and Application Notes
+Software and documentation for the code used in Thorlabs Insights videos and Application Notes
 
 ## Repo Organization
 
