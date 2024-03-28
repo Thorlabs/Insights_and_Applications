@@ -53,7 +53,7 @@ BOM:
 - USB-A-79 x 1
 
 **Custom 3D Printed Adapter**
-- PRMTZ8 Gimbal Motor.3mf x 1
+- PRMTZ8 Mounting Bracket.3mf x 1
 
 **Post Holders**
 - PH1 x 1
