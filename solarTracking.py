@@ -246,3 +246,20 @@ azimuthController.Close_Port()
 del elevationController
 del azimuthController
 
+
+
+#Backlash disabled does have a noticable effect if you need to correct the offset. You need to overshoot to compensate.
+#Reduce Speed in Kinesis first?
+
+'''When assembling:
+- ensure that the lens tubes point to 0 in the zimuth axis when homed. Otherwsie you introduce n*90 offset 
+- Once aligned to North and you start tracking, you can add offsets to each axis. 
+- For the azimuth it's honestly easier to move the breadboard manually
+- For the elevation axis, you can look are the showdow cast on the SM1RC
+	- When the scope aligned to the sun, there  shoudl eb no shadow. 
+	- Use the shadow to rough align azimuth the shadow to be centered
+	- Adjust the elevation to minimize the shadow and you'll see the sun on screen to make small tweaks
+
+
+
+'''
