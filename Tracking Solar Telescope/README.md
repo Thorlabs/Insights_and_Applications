@@ -43,8 +43,8 @@ Currently the python scripts only control the motors and do not interface with t
 	- If using Windows and Kinesis is installed, this is not necessary.
 	- If using linux, the FTDI drivers are included in most linux kernals, so this is not necessary
 
-2. If using windows, with each K-cube connected to the computer, open device manager and make sure there is a COM port for each cube.
-	- If not showing up as COM port devices, open device manager, select properties for each APT USB Device, check the 'Load VCP' is box, and power cycle the controllers. 
+2. (If using windows) Connect each K-cube to the computer, open device manager, and make sure there is a COM port for each cube.
+	- If not showing up as COM port devices, open device manager, select properties for each 'APT USB Device', check the 'Load VCP' box, and power cycle the controllers. 
 ![Virtual Com Ports](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/Load%20VCP.PNG)
 
 3. Install the necessary Python dependencies if not already
@@ -72,7 +72,7 @@ Currently the python scripts only control the motors and do not interface with t
 		
 		python solarTrackingGUI.py
 
-7. In another terminal, run solarTracking.py which will initiate the tracking
+7. In another terminal, run solarTracking.py, which will initiate the tracking
 		
 		python solarTracking.py
 
