@@ -2,11 +2,11 @@
 
 This solar telescope is designed using all Thorlabs catalog components, with the exception of a 3D printed bracket for mounting the two PRMTZ8 rotation stages in a celestial coordinate system. 
 
-![Final Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/FinalAssembly.PNG)	
+![Final Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/FinalAssembly.PNG)	
 
 The [3D model](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/PRMTZ8%20Gimbal%20Motor.3mf) of the motor bracket was 3D printed in PETG for improved UV resistance since it will be used outdoors in direct sunlight. This was printed in the orientation below with no support structure needed and with 250um layer heights. 
 
-![3DprintedAdapter](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/3DPrintedAdapter.PNG)	
+![3DprintedAdapter](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/3DPrintedAdapter.PNG)	
 
 The bill of materials (BOM) for the imaging telescope as well as the motorized mounting assembly are detailed below. 
 
@@ -32,7 +32,7 @@ BOM:
 - NE10A x 1
 
 
-![Solar Telescope Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/Design%20Files/TelescopeAssembly.PNG)
+![Solar Telescope Assembly](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/TelescopeAssembly.PNG)
 </ul> 
 
 **Excel Sheet:** 'Telescope Assembly.xls'
