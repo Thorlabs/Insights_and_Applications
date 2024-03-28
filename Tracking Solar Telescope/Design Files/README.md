@@ -66,7 +66,7 @@ BOM:
 **Lens Tube Clamps**
 - SM1RC x 2
 
-(Breadboard, Breadboard Feet, K-Cube Controllers, and K-Cube Hub not shown in image)
+
 </ul> 
 
 **Excel Sheet:** Motorized 'Tracking Assembly.xls'
