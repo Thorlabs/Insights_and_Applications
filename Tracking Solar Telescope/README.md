@@ -50,7 +50,7 @@ Currently the python scripts only control the motors and do not interface with t
 3. Install the necessary Python dependencies if not already
 	- PySerial (pip install pyserial)
 	- numpy (pip install numpy)
-	- pysimplegui (pip install pysimplegui)
+	- pysimplegui (pip install PySimpleGUI==4.60.5)
 	- pysolar (pip install pysolar)
 	- pylunar (pip install pylunar)
 	- pytz (pip install pytz)
