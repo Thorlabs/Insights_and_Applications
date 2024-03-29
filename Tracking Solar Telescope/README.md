@@ -13,7 +13,7 @@ Currently the python scripts only control the motors and do not interface with t
 
 - **pyKinesis.py** - A class that wraps the basic commands of the Kinesis serial communication protocol into a more user friendly interface
 
-- **solarTrackingGUI.py** - A program that runs a small GUI for altering the telescope offsets and to disable the solar tracking. This generates 
+- **solarTrackingGUI.py** - A program that runs a small GUI for altering the telescope alignment offsets and to disable the solar tracking. This generates 
 	a .json config file for communicating tracking parameters with the tracking script. 
 
 	![solarTrackingGUI](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/SolarTrackingGUI.PNG)	
