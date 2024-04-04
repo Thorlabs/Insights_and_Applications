@@ -2,7 +2,7 @@
 
 # Build A Motorized Imaging Solar Telescope | Thorlabs Insights
 
-This repository caontains the code used for the [Thorlabs Insight that covers the design and build of an imaging, tracking solar telescope using the PRMTZ8 rotation stages](https://youtu.be/4gaVIQsGUl4). This Insight provides a overall explanation the the telescope design and using the software. 
+This repository caontains the code used for the [Thorlabs Insight covering the design and build of an imaging, tracking solar telescope using the PRMTZ8 rotation stages](https://youtu.be/4gaVIQsGUl4). This Insight provides a overall explanation the the telescope design and using the software. 
 
 For more details on the parts, BOM, and 3D printable motor Bracket, there is a detailed README in the [Design Files folder](https://github.com/Thorlabs/Insights_and_Applications/tree/main/Tracking%20Solar%20Telescope/Design%20Files). 
 
