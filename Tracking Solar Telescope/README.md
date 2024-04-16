@@ -28,7 +28,7 @@ Currently the python scripts only control the motors and do not interface with t
 	* User's Time Zone (per pytz.all_timeszones)
 	* The serial numbers of the controllers for the Azimuth and Elevation axes
 
-	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)
+	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/ProgramUserSettings.PNG)
 
 
 </ul>
