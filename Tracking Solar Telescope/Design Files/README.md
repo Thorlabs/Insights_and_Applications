@@ -58,7 +58,7 @@ BOM:
 - PRMTZ8 Mounting Bracket.3mf x 1
 
 **Post Holders**
-- PH1 x 1
+- PH1 x 2
 
 **Posts**
 - TR1 x 2
