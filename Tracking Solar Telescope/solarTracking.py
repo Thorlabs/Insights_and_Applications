@@ -1,7 +1,6 @@
 from pysolar.solar import *
 import pylunar as pl
-import pytz
-from datetime import datetime
+import datetime
 from pyKinesis import *
 import time
 from time import sleep
@@ -19,14 +18,12 @@ trackingObject = "Sun"
 userLongitude = -74.7527
 #User Latitude
 userLatitude = 41.0582
-#User Time Zone
-userTimeZone = pytz.timezone('US/Eastern')#Enter relavent timezone (to view all timezones, see pytz.all_timezones)
 
 #Azimuth Axis KDC101 Serial Number (Horizontal Rotation Axis)
-azimuthKDC101SN = '27005375'
+azimuthKDC101SN = '27000000'
 
 #Elevation Axis KDC101 Serial Number (Elevation/Altitude Rotation Axis)
-elevationKDC101SN = '27005349'
+elevationKDC101SN = '27266892'
 ###############################################################################################
 
 
@@ -37,16 +34,15 @@ def decdeg2dms(dd):
     deg,mnt = divmod(mnt, 60)
     return mult*deg, mult*mnt, mult*sec
 
-def getObjectPosition(Object,Longitude,Latitude,TimeZone):
+def getObjectPosition(Object,Longitude,Latitude):
 
 	#Returns Azimuth and Elevation in degrees
 	#Object is "Sun" or "Moon" for dictating which object to track
 	#Longitude is in degrees
 	#Latitude is in degrees
-	#TimeZone is a pytz.timezone() object. All timezones can be viewed via pytz.all_timezones
 
-	
-	currentTime = datetime.utcnow().replace(tzinfo=pytz.utc)
+	currentTime =  datetime.datetime.now(datetime.timezone.utc)
+
 
 	if Object == "Sun":
 		Real_Elevation = get_altitude(Latitude,Longitude,currentTime)
@@ -160,9 +156,11 @@ print("Homing Completed.")
 #Disable backlash correction?
 
 #Get Current Sun Position
-Current_Time = datetime.utcnow().replace(tzinfo=pytz.utc)
+#Current_Time = datetime.utcnow().replace(tzinfo=pytz.utc)
+Current_Time =  datetime.datetime.now(datetime.timezone.utc)
+
 print("Getting Current Solar Position.")
-azimuthPosition,elevationPosition = getObjectPosition(trackingObject,userLongitude,userLatitude,userTimeZone)
+azimuthPosition,elevationPosition = getObjectPosition(trackingObject,userLongitude,userLatitude)
 
 
 if elevationPosition < 0:
@@ -172,9 +170,7 @@ if elevationPosition > 180:
 
 
 if azimuthPosition < 0:
-		azimuthPosition = 360+azimuthPosition
-if azimuthPosition > 180:
-	azimuthPosition = 360 - azimuthPosition				
+		azimuthPosition = 360+azimuthPosition			
 
 #Move to New positions before starting tracking
 
@@ -209,9 +205,9 @@ while True:
 	except:
 		pass	
 
-	Current_Time = datetime.utcnow().replace(tzinfo=pytz.utc)
+	Current_Time = datetime.datetime.now(datetime.timezone.utc)
 	#Get New Positions
-	azimuthPosition,elevationPosition = getObjectPosition(trackingObject,userLongitude,userLatitude,userTimeZone)
+	azimuthPosition,elevationPosition = getObjectPosition(trackingObject,userLongitude,userLatitude)
 
 	azimuthPosition += tracking_params['azimuthOffset']
 	elevationPosition += tracking_params['elevationOffset']
@@ -224,8 +220,8 @@ while True:
 
 	if azimuthPosition < 0:
 			azimuthPosition = 360+azimuthPosition
-	if azimuthPosition > 180:
-		azimuthPosition = 360 - azimuthPosition		
+	#if azimuthPosition > 180:
+	#	azimuthPosition = 360 - azimuthPosition		
 
 	print("\r\t\tAzimuth: {}\t\tElevation: {}".format(np.round(azimuthPosition,4),np.round(elevationPosition,4)),end='')
 	#Move to New positions
@@ -245,4 +241,5 @@ elevationController.Close_Port()
 azimuthController.Close_Port()
 del elevationController
 del azimuthController
+
 
