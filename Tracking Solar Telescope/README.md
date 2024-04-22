@@ -25,7 +25,6 @@ Currently the python scripts only control the motors and do not interface with t
 	* Whether the user wants to track the sun or moon
 	* User's Longitude
 	* User's Latitude
-	* User's Time Zone (per pytz.all_timeszones)
 	* The serial numbers of the controllers for the Azimuth and Elevation axes
 
 	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/ProgramUserSettings.PNG)
@@ -61,11 +60,10 @@ Currently the python scripts only control the motors and do not interface with t
 	- **trackingObject** - What object you want to track; "Sun" or "Moon"
 	- **userLongitude** - Your Longitude position
 	- **userLatitude** - Your Latitude position
-	- **userTimeZone** - Your Timezone (printing pytz.all_timezones will show all options)
 	- **azimuthKDC101SN** - Serial Number(string)  of the azimuth axis K-Cube Controller
 	- **elevationKDC101SN** - Serial Number(string)  of the elevation/altitude axis K-Cube Controller
 
-	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/UserSettings.PNG)
+	![User Settings](https://github.com/Thorlabs/Insights_and_Applications/blob/main/Tracking%20Solar%20Telescope/assetts/ProgramUserSettings.PNG)
 
 5. Save the updated user settings in solarTracking.py 
 6. Open a terminal and run solarTrackingGUI.py.(This program is a GUI for updating the tracking offsets and to stop the tracking program.)
