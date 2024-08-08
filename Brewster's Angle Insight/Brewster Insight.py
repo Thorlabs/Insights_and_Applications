@@ -144,7 +144,7 @@ Newy2=np.multiply(Newy2,100)
 myList=np.vstack((Newx3,Newy))
 df=pd.DataFrame(myList)
 df=df.transpose()
-xlsfile = 'XXXXXXX' # Insert name of excel file you want to save teh data to.
+xlsfile = 'XXXXXXX' # Insert name of excel file you want to save the data to.
 writer = pd.ExcelWriter(xlsfile, engine='xlsxwriter')
 df.to_excel(writer, sheet_name="Sheet1",startrow=1, startcol=1, header=False, index=False)
 writer.close()
