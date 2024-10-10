@@ -82,6 +82,7 @@ The legacy modes can be individually activated by appending the associated flags
 The script contains some example crystals (from the Thorlabs catalog or the EDU-QOPA1) and crystal systems, defined after the module definitions. You can either import the file as a module and use these definitions in your own code or interactively in a python command line interpreter. Or you adjust the file (especially the `'__main__'` block at the end) to request the desired calculations and outputs and run it as a python script.
 
 Running the script "as is" will reproduce figures from the EDU-QOPA1 manual:
+ - Comparison of refractive indices calulated from different parameter sources.
  - Dispersion curves of refractive indices and group indices for the crossed BBO pair.
  - Spatial walk-off phase maps for the EDU-QOPA1 crystal set and setup geometry.
  - Additionally, a 3D overview plot of the beams and optical axes of all involved crystals.

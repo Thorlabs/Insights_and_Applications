@@ -308,7 +308,7 @@ class Crystal:
             n_e_wl = lambda wl: np.sqrt(2.3849 - 0.01259 * (wl * 1e6) ** 2 + 0.01079 / (wl * 1e6) ** 2 + 1.6518e-4 / (
                         wl * 1e6) ** 4 - 1.9474e-6 / (wl * 1e6) ** 6 + 9.3648e-8 / (wl * 1e6) ** 8)
         else:
-            raise ValueError(f'Sellmeier-Equations for {material:s} undefined.')
+            raise ValueError(f'Sellmeier-Equations for {self.material:s} undefined.')
 
         # define theta-dependent (polarization-vector dependent) refractive/group index functions:
         # also dependent on wavelength (required for derivation step during group index calculation)
@@ -1385,142 +1385,119 @@ def vecangle(v1: np.array, v2: np.array) -> Union[np.array, float]:
 
 
 # ______________________________ END of module definitions (main function follows below) _______________________________
-# Some fixed definitions for convenience (development phase of Thorlabs EDU-QOPA1):
+
+# ----------------------------------- Some definitions for Thorlabs EDU-QOPA1 setup: -----------------------------------
 default_detector = {'hoa': 3, 'r_aperture': 5e-3, 'distance': 1.0, 'points': points, 'bandwidth': 10e-9}
-default_wl = {'pump': 406e-9, 'pump_bw': 0.5e-9}
+default_wl = {'pump': 405e-9, 'pump_bw': 0.5e-9}
 pol_vecs_ideal = {'pump': [pol_H, pol_V], 'signal': [pol_V, pol_H], 'idler': [pol_V, pol_H]}
 pol_vecs_type2 = {'pump': [pol_V, pol_V], 'signal': [pol_V, pol_H], 'idler': [pol_H, pol_V]}
-# Migdal angle (in degrees) 0 = pol_V; 90 = pol_H;
-# NOTE!! This is only a crude approximation. Actually, there is more asymmetry in the polarization angles, see Ref. [2]!
-d_angle_Migdal = 3
-pol_vecs_Migdal = {'pump': [pol_H, pol_V],
-                   'signal': [pol_V, pol_deg(90+d_angle_Migdal)],
-                   'idler': [pol_V, -pol_deg(90-d_angle_Migdal)]}
-pol_vecs_realistic = {'pump': [pol_H, pol_V],
-                      'signal': [pol_deg(d_angle_Migdal), pol_deg(90+d_angle_Migdal)],
-                      'idler': [-pol_deg(-d_angle_Migdal), -pol_deg(90-d_angle_Migdal)]}
 
-#--------------- Crystals and systems for design phase --------------
-Dummy = Crystal('Dummy', 'Quartz', 0, cutangle_ud=90)
 design_thickness = 1.2e-3
-SPDC = Crystal('SPDC-1', 'BBO', design_thickness, cutangle_lr = 29.2)
-NLC07 = Crystal('NLC07-1', 'BBO', 3.0e-3, cutangle_ud = 19.8, tiltangle_ud = 0)
-NLC04 = Crystal('NLC04-signal', 'BBO', 0.5e-3, cutangle_lr = -23.3, tiltangle_lr = -6, rotation=0)
-# optimal setting for HS: tiltangle_lr = -6, rotation=8.5
-NLCQ3 = Crystal('SPDC', 'BBO', 3e-3, cutangle_ud = 29.2)
+# Note that the TCC crystal thickness has been optimized from experimental results and is thinner than the optimal value
+# calculated here.
+QOPA1_TCC = Crystal('TCC', 'BBO', 0.71 * design_thickness, cutangle_ud = 80, tiltangle_ud= 0)
+QOPA1_SPDC = Crystal('SPDC-1', 'BBO', design_thickness, cutangle_lr = 29.2)
+QOPA1_SCC = Crystal('SCC-signal', 'BBO', design_thickness, cutangle_lr = -12.7, tiltangle_lr = 3)
+EDU_QOPA1_Setup = CrystalSystem('EDU-QOPA1', default_wl, default_detector,
+                                             [QOPA1_TCC],[QOPA1_SPDC, QOPA1_SPDC.copy('SPDC-2',90)],
+                                             [QOPA1_SCC], [QOPA1_SCC.copy('dSCC-idler',180,True)])
 
-NLC03 = Crystal('NLC03', 'BBO', 0.6e-3, cutangle_ud = 30.5)
-NLC02 = Crystal('NLC03', 'BBO', 0.3e-3, cutangle_ud = 30.5)
-NLC01 = Crystal('NLC03', 'BBO', 0.15e-3, cutangle_ud = 30.5)
-
-YVO_TCC = Crystal('YVO-A-cut', 'YVO', 0.25e-3 + 0.04e-3, cutangle_lr = 90)
-SPDC_wTol1 = Crystal('SPDC-1', 'BBO', design_thickness - 0.05e-3, cutangle_lr = -(29.2-0.55), tiltangle_lr= 0.55)
-SPDC_wTol2 = Crystal('SPDC-2', 'BBO', design_thickness - 0.05e-3, cutangle_ud = 29.2, tiltangle_lr= 0.55)
-
-DPG_system_high_sym = CrystalSystem('DPG_system_high_sym', default_wl, default_detector,
-                                    [NLC07,NLC07.copy('NLC07-2',180,False,True)],
-                                    [SPDC_wTol1, SPDC_wTol2], [NLC04], [NLC04.copy('NLC04-idler',180,True)],
-                                    beam_polarizations=pol_vecs_Migdal)   #[SPDC, SPDC.copy('SPDC-2',90)]
-#DPG_system_high_sym.spdcs[1].thickness = design_thickness - 0.05e-3  # tolerances!
-DPG_system = DPG_system_high_sym.copy('DPG_system', rotate90=True)
-
-dTCC_HS = Crystal('dTCC-1', 'BBO', design_thickness, cutangle_ud = 37.3)
-dTCC_LS = dTCC_HS #Crystal('dTCC-1', 'BBO', design_thickness, cutangle_ud = 39.5)
-# opt-HS: cutangle_ud = 37.3
-# opt-LS: cutangle_ud = 39.5
-dSCC_HS = Crystal('dSCC-signal', 'BBO', design_thickness, cutangle_lr = -12.7, cutangle_ud= 0, tiltangle_lr = 3)
-dSCC_LS = dSCC_HS #Crystal('dSCC-signal', 'BBO', design_thickness, cutangle_lr = -11.65, cutangle_ud= 0, tiltangle_lr = 3)
-# opt-HS: (cutangle_lr = -12.69) or (cutangle_lr = -12.6, cutangle_ud= -1.3)
-# opt-LS: cutangle_lr = -11.65 or (cutangle_lr = -11.6, cutangle_ud= 1.3)
-Design_system_high_sym_dT_dS = CrystalSystem('Design_system_high_sym_dT_dS', default_wl, default_detector,
-                                             [dTCC_HS,dTCC_HS.copy('dTCC-2',180)],[SPDC, SPDC.copy('SPDC-2',90)],
-                                             [dSCC_HS], [dSCC_HS.copy('dSCC-idler',180,True)])
-Design_system_low_sym_dT_dS = CrystalSystem('', default_wl, default_detector,
-                                             [dTCC_LS,dTCC_LS.copy('dTCC-2',180)],[SPDC, SPDC.copy('SPDC-2',90)],
-                                             [dSCC_LS], [dSCC_LS.copy('dSCC-idler',180,True)]).copy('Design_system_low_sym_dT_dS', rotate90=True)
-
-sTCC = Crystal('sTCC', 'BBO', 0.830*design_thickness, cutangle_ud = 80)  # good for both HS & LS (<0.3fs)
-sTCC_ordered = Crystal('sTCC', 'BBO', 0.83e-3, cutangle_ud = 80, tiltangle_ud= 4)  # version ordered after experimental tests
-#sSCC_HS = Crystal('sSCC-signal', 'BBO', 6.7*design_thickness, cutangle_lr = 3.6)  # good, but expensive
-#sSCC_HS = Crystal('sSCC-signal', 'a-BBO', 5.52*design_thickness, cutangle_lr = 3.6)  # good
-sSCC_HS = Crystal('sSCC-signal', 'a-BBO-N', 6.39*design_thickness, cutangle_lr = 3.6, tiltangle_lr = -1.5)  # good
-#sSCC_LS = Crystal('sSCC-signal', 'Quartz', 81.45e-3, cutangle_lr = 4, tiltangle_lr = 0)  # very thick
-#sSCC_LS = Crystal('sSCC-signal', 'Quartz', 44.0e-3, cutangle_lr = -44, cutangle_ud=45, tiltangle_lr = 0)  # large TWO
-#sSCC_LS = Crystal('sSCC-signal', 'Quartz', 35.0e-3, cutangle_ud=77, tiltangle_lr = 0, rotation= 20)  # gigantic TWO
-sSCC_LS = Crystal('sSCC-signal', 'YVO-T', 6.47*design_thickness, cutangle_lr = 3) # good
-Design_system_high_sym_sT_sS = CrystalSystem('Design_system_high_sym_sT_sS', default_wl, default_detector, [sTCC],
-                               [SPDC, SPDC.copy('SPDC-2',90)], [sSCC_HS], [sSCC_HS.copy('sSCC-idler')],
-                                             beam_polarizations=pol_vecs_realistic)
-Design_system_low_sym_sT_sS = CrystalSystem('', default_wl, default_detector, [sTCC],[SPDC, SPDC.copy('SPDC-2',90)],
-                                            [sSCC_LS], [sSCC_LS.copy('sSCC-idler')]).copy('Design_system_low_sym_sT_sS', rotate90=True)
-
-Design_system_high_sym_sT_dS = CrystalSystem('Design_system_high_sym_sT_dS', default_wl, default_detector,
-                                             [sTCC_ordered],[SPDC, SPDC.copy('SPDC-2',90)],
-                                             [dSCC_HS], [dSCC_HS.copy('dSCC-idler',180,True)])
-
-# ------- For comparision with Ref. [1] -----------
+# ------------------- For comparision with Ref. [1] -------------------
 Kwiat_pair = Crystal('SPDC-1', 'BBO', 0.6e-3, cutangle_lr = 33.9)
 Kwiat_scomp = Crystal('sComp_signal', 'BBO', 0.245e-3, cutangle_lr= 33.9, tiltangle_lr= 0)
 Kwiat_system = CrystalSystem('Kwiat_system', {'pump': 351e-9},default_detector,[],
                              [Kwiat_pair, Kwiat_pair.copy('SPDC-2', 90)],[Kwiat_scomp],
                              [Kwiat_scomp.copy('sComp_idler', 180, True)])
 
-# ------------ Test of Type-II SPDC --------------
+# --------------- additional Crystals (Thorlabs catalog) --------------
+Dummy = Crystal('Dummy', 'Quartz', 0, cutangle_ud=90)  # zero thickness dummy crystal -> does nothing
+
+# https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_ID=15444
+NLC01 = Crystal('NLC03', 'BBO', 0.15e-3, cutangle_ud = 30.5)
+NLC02 = Crystal('NLC03', 'BBO', 0.30e-3, cutangle_ud = 30.5)
+NLC03 = Crystal('NLC03', 'BBO', 0.60e-3, cutangle_ud = 30.5)
+
+NLC04 = Crystal('NLC04', 'BBO', 0.5e-3, cutangle_ud = 23.3)
+NLC05 = Crystal('NLC04', 'BBO', 1.0e-3, cutangle_ud = 23.3)
+NLC06 = Crystal('NLC04', 'BBO', 2.0e-3, cutangle_ud = 23.3)
+
+NLC07 = Crystal('NLC07', 'BBO', 3.0e-3, cutangle_ud = 19.8)
+
+NLC08 = Crystal('NLC07', 'BBO', 30e-6, cutangle_ud = 29.2)
+NLC09 = Crystal('NLC07', 'BBO', 75e-6, cutangle_ud = 29.2)
+
+# https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=16384
+NLCQ1 = Crystal('SPDC', 'BBO', 1e-3, cutangle_ud = 29.2)
+NLCQ2 = Crystal('SPDC', 'BBO', 2e-3, cutangle_ud = 29.2)
+NLCQ3 = Crystal('SPDC', 'BBO', 3e-3, cutangle_ud = 29.2)
+
 NLCQ4 = Crystal('SPDC', 'BBO', 1e-3, cutangle_ud = 41.8)
-comp = Crystal('SPDC', 'BBO', 0.5e-3, cutangle_ud = 41.8)
-NLC03_scc = Crystal('NLC03', 'BBO', 0.6e-3, cutangle_ud = 30.5, tiltangle_lr=0)
-#NLC07_scc = Crystal('NLC07', 'BBO', 3.0e-3, cutangle_ud = -19.8, tiltangle_lr = 3)
-#NLC04_scc = Crystal('NLC04-signal', 'BBO', 0.5e-3, cutangle_ud = -23.3, tiltangle_lr = 3, rotation=0)
-#Type2_system = CrystalSystem('Type-II System', default_wl, default_detector, Dummy, NLCQ4,
-#                             NLC03_scc, NLC03_scc.copy('comp-idler',0,True),
+NLCQ5 = Crystal('SPDC', 'BBO', 2e-3, cutangle_ud = 41.8)
+NLCQ6 = Crystal('SPDC', 'BBO', 3e-3, cutangle_ud = 41.8)
+
+NLCQ7 = Crystal('SPDC', 'BBO', 3e-3, cutangle_ud = 26.9)
+NLCQ8 = Crystal('SPDC', 'BBO', 3e-3, cutangle_ud = 22.2)
+NLCQ9 = Crystal('SPDC', 'BBO', 3e-3, cutangle_ud = 19.8)
+
+# --------------------- Test of Type-II SPDC ---------------------
+# Note: All walk-offs calculated for a nominally perfect compensation system with NLCQ5 and NLCQ4 are exactly zero.
+# However, the calculation doesn't take in account imperfections of the polarization flip by the half-waveplate required
+# between SPDC and SCC crystal, as well as other polarization distorting effects. In reality, there still may be quite
+# a lot of walk-off in the system. The calculation can still help to find additional promising candidates for
+# compensation crystals.
+# Type2_system = CrystalSystem('Type-II System', default_wl, default_detector,
+#                             tccs=[Dummy], spdcs=[NLCQ5],
+#                             signal_sccs=[NLCQ4], idler_sccs=[NLCQ4.copy('comp-idler')],
 #                             beam_polarizations=pol_vecs_type2, spdc_type=2)
 
 if __name__ == '__main__':
-    #for system in [Type2_system]:
-    #for system in [DPG_system_high_sym, DPG_system]:
-    '''
-    aBBO_NLP = Crystal('aBBO_NLP','a-BBO-N',0)
-    aBBO_THO = Crystal('aBBO_THO','a-BBO',0)
-    wl = np.arange(350e-9,850e-9,10e-9)
-    (n_o_NLP, n_e_NLP, *_) = aBBO_NLP.get_ref_indices(wl)
-    (n_o_THO, n_e_THO, *_) = aBBO_THO.get_ref_indices(wl)
+    # Start out by plotting refractive indices comparison between different parameter sources.
+    bBBO_NLP = Crystal('beta-BBO','beta-BBO',0)
+    bBBO_THO = Crystal('beta-BBO-T','beta-BBO-T',0)
+    wl = np.arange(350e-9, 850e-9, 10e-9)
+    (n_o_NLP, n_e_NLP, *_) = bBBO_NLP.get_ref_indices(wl)
+    (n_o_THO, n_e_THO, *_) = bBBO_THO.get_ref_indices(wl)
     fig, ax = plt.subplots()
-    ax.plot(wl*1e9,n_o_NLP, color='black')
-    ax.plot(wl*1e9,n_e_NLP, color='black', linestyle='--')
-    ax.plot(wl*1e9,n_o_THO, color='red')
-    ax.plot(wl*1e9,n_e_THO, color='red', linestyle='--')
+    fig.suptitle('Refractive indices comparison between parameter sources')
+    ax.plot(wl*1e9,n_o_NLP, color='black', label='$n_o$ (Newlight Photonics)')
+    ax.plot(wl*1e9,n_e_NLP, color='black', linestyle='--', label='$n_e$ (Newlight Photonics)')
+    ax.plot(wl*1e9,n_o_THO, color='red', label='$n_o$ (Thorlabs)')
+    ax.plot(wl*1e9,n_e_THO, color='red', linestyle='--', label='$n_e$ (Thorlabs)')
     ax.set_xlabel('wavelength (nm)')
     ax.set_ylabel('ref. index')
-    
+    ax.legend(loc='center right')
+
+    # Plot refractive and group indices relevant for the SPDC crystals of EDU-QOP(A)1.
     BBO = Crystal('BBO', 'BBO', 0)
     wl = np.arange(405e-9, 810e-9, 10e-9)
     (n_o, n_e, n_eff, g_o, g_e, g_eff, *_) = BBO.get_ref_indices(wl)
     fig, ax = plt.subplots()
-    ax.plot(wl * 1e9, n_o, color='black')
-    ax.plot(wl * 1e9, n_e, color='red', linestyle='--')
-    ax.plot(wl * 1e9, n_eff(np.deg2rad(29.2)), color='red')
+    fig.suptitle('Refractive indices SPDC EDU-QOP(A)1')
+    ax.plot(wl * 1e9, n_o, color='black', label='$n_o$')
+    ax.plot(wl * 1e9, n_e, color='red', linestyle='--', label='$n_e$')
+    ax.plot(wl * 1e9, n_eff(np.deg2rad(29.2)), color='red', label='$n_{eff} (29.2°)$')
     ax.set_xlabel('wavelength (nm)')
     ax.set_ylabel('ref. index')
+    ax.grid()
+    ax.legend(loc='center left')
     fig, ax = plt.subplots()
-    ax.plot(wl * 1e9, g_o, color='black')
-    ax.plot(wl * 1e9, g_e, color='red', linestyle='--')
-    ax.plot(wl * 1e9, g_eff(np.deg2rad(29.2)), color='red')
+    fig.suptitle('Group indices SPDC EDU-QOP(A)1')
+    ax.plot(wl * 1e9, g_o, color='black', label='$g_o$')
+    ax.plot(wl * 1e9, g_e, color='red', linestyle='--', label='$g_e$')
+    ax.plot(wl * 1e9, g_eff(np.deg2rad(29.2)), color='red', label='$g_{eff} (29.2°)$')
     ax.set_xlabel('wavelength (nm)')
     ax.set_ylabel('group index')
-    '''
-    for system in [Design_system_high_sym_sT_dS]:#,Design_system_low_sym_dT_dSDesign_system_high_sym_dT_dS,Design_system_high_sym_sT_sS,Design_system_low_sym_sT_sS]:
+    ax.legend()
+
+    for system in [EDU_QOPA1_Setup]:
         print(f'Report for crystal system "{system}":')
-        #system.plot_pol_angles('H')  # before pol-refinement
-        #system.plot_axes_overview()
-        system.print_temp_walkoff_summary(per_crystal_type=True, advice=False)
-        #system.plot_temp_walkoff_summary()
-        system.print_spatial_walkoff_summary(per_crystal_type=False,per_crystal=False, sig_idl_separate=False)
+        system.plot_axes_overview()
+        system.print_temp_walkoff_summary(per_crystal_type=True, advice=True)
+        system.print_spatial_walkoff_summary(per_crystal_type=False, per_crystal=False, sig_idl_separate=False)
         system.print_tcc_phase_and_displacement_summary()
-        # quickplot(system.spdcs[1].s_walkoff_signal, r'$\Phi_\mathrm{signal, SPDC-2} (°)$', norm2center=True)
-        system.plot_spatial_walkoff_summary(sig_idl_separate=False,per_crystal_type=True,norm2center='all',show_tcc=False,show_now=False,export=False)
-        #system.plot_pol_angles('H')  # after pol-refinement
-        #print(f'Effective SCC cutangle: {system.signal_sccs[0].cutangle_eff(deg=True):.2f}°')
-        #print(f'Effective SCC rotation in mount: {system.signal_sccs[0].rotation_eff(deg=True):.2f}°')
-        print('______________________________________________________________')  # '''
+        system.plot_spatial_walkoff_summary(sig_idl_separate=False, per_crystal_type=True, norm2center='all',
+                                            show_tcc=False, show_now=False, export=False)
+        # system.plot_pol_angles('H')  # after pol-refinement
+        print('______________________________________________________________')
     plt.show()
 
