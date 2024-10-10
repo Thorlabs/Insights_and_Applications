@@ -45,7 +45,7 @@ The CrystalSystem class treats crystals for SPDC and spatial/temporal compensati
 The CrystalSystem class also provides a method to rotate the SPDC crystal by 90° around the pump beam direction, which automatically rotates the compensation crystals accordingly (for crossed Type-I SPDC systems). Note, that without changes of the crystal parameters this ususally leads to a change of total temporal walk-off.
 
 ### Detection Aperture / Plane
-One of the purposes of this script is to calculate spatial walk-off, i.e. the phase difference of horizontal and vertical polarization depending on the photon-pair output angle or spatial position. For the calculations done here, effectively only angles are relevant. However, it is not really intuitive to think about the problem in terms of angular ranges. Instead it is much easier to grasp when thinking about positions on a "detection" plane instead. 
+One of the purposes of this script is to calculate spatial walk-off, i.e. the phase difference of horizontal and vertical polarization depending on the photon-pair output angle or spatial position. For the calculations done here, effectively only angles are relevant. However, it is not really intuitive to think about the problem in terms of angular ranges. Instead, it is much easier to grasp when thinking about positions on a "detection" plane instead. 
 
 Here, we (somewhat arbitrarily) place this plane at the iris apertures in front of the lenses focussing the photon pairs onto the very small sensitive area of the actual detectors. This makes it easy to understand how spatial walk-off effects are influenced by different aperture sizes, as it just 1:1 changes the detection area integrated over in the output plots.
 
@@ -79,15 +79,17 @@ The legacy modes can be individually activated by appending the associated flags
 
 # How To Use
 
-The script contains some example crystals (from the Thorlabs catalog or the EDU-QOPA1) and crystal systems, defined after the module definitions. You can either import the file as a module and use these definitions in your own code or interactively in a python command line interpreter. Or you adjust the file (especially the '__main__' block at the end) to request the desired calculations and outputs and run it as a python script.
+The script contains some example crystals (from the Thorlabs catalog or the EDU-QOPA1) and crystal systems, defined after the module definitions. You can either import the file as a module and use these definitions in your own code or interactively in a python command line interpreter. Or you adjust the file (especially the `'__main__'` block at the end) to request the desired calculations and outputs and run it as a python script.
 
 Running the script "as is" will reproduce figures from the EDU-QOPA1 manual:
  - Dispersion curves of refractive indices and group indices for the crossed BBO pair.
  - Spatial walk-off phase maps for the EDU-QOPA1 crystal set and setup geometry.
- - Additionally a 3D overview plot of the beams and optical axes of all involved crystals.
+ - Additionally, a 3D overview plot of the beams and optical axes of all involved crystals.
  
 # References To Literature
 [^OptExp2005]: J. B. Altepeter, E. R. Jeffrey, and P. G. Kwiat, "Phase-compensated ultra-bright source of entangled photons", Opt. Exp. 13, 8951-8959, (2005), https://doi.org/10.1364/OPEX.13.008951
+
 [^JOS1997]: a) A. Migdall, "Polarization directions of noncollinear phase-matched optical parametric downcoversion output", J. Opt. Soc. Am. B, 14, 1093-1098, (1997), https://doi.org/10.1364/JOSAB.14.001093;
- Similarly discussed in: b) R. Rangarajana, A. B. U’Ren, and P. G. Kwiat, "Polarization dependence on downconversion emission angle: investigation of the ‘Migdall effect’", Journal of Modern Optics, 58, 312–317, (2011), https://doi.org/10.1080/09500340.2010.515753
+  Similarly discussed in: b) R. Rangarajana, A. B. U’Ren, and P. G. Kwiat, "Polarization dependence on downconversion emission angle: investigation of the ‘Migdall effect’", Journal of Modern Optics, 58, 312–317, (2011), https://doi.org/10.1080/09500340.2010.515753
+
 [^OptExp2009]: R. Rangarajan, M. Goggin, and P. G. Kwiat, "Optimizing type-I polarization-entangled photons", Opt. Exp. 17, 18920-18933, (2009), https://doi.org/10.1364/OE.17.018920
