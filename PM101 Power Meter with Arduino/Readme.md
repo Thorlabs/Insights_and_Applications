@@ -3,7 +3,7 @@
 Connect your Arduino with a Thorlabs PM101
 In this project, a Thorlabs PM101 is connected to an Arduino via the serial interface so that you can read the measured values. 
 
-![photo](photo.png)
+![photo](photo.jpg)
 
 As an application example, you can display the measured value on the Arduino and build your own handheld power meter. 
 
@@ -30,11 +30,11 @@ SCPI command "SYST:SEN:TRAN:BAUD" in the Thorlabs Instrument Communicator or in 
 
 ### Step 3: Assemble the circuit 
 
-Connect four pins of the Thorlabs PM101 to the Arduino Uno board following the diagram layout.png attached to the sketch 
-
-![connections](connections.png)
+Connect four pins of the Thorlabs PM101 to the Arduino Uno board following the diagram connections.png attached to the sketch 
 
 ![schematic](schematic.png)
+
+![connections](connections.png)
 
 ### Step 4: Load the code 
 Upload the code in PM10x.ino on to your board 
